@@ -1,0 +1,286 @@
+/* .App {
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+    background: #edf0f5;
+    width: 100%;
+  } */
+  .jumbotron {
+    background-image: url('pensil.jpg');
+    height: 500px;
+    background-size: cover;
+  }
+  .btn-warning{
+    background-color: #ff9900;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px black !important;
+  }
+  .btn-warning:hover{
+    background-color: #ffbf5f;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+  }
+  .col{
+    padding-left: 11%;
+  }
+  .kampret, .kampret1, .kampret2{
+    display: inline-block;
+    width: 33%;
+    padding-left: 10px;
+  }
+  
+  .message {
+    width: 100%;
+    padding: 10px;
+    padding-left: 180px;
+    /* padding-right: 40px; */
+    color: white;
+    background-color: rgb(143, 178, 255);
+    box-shadow: 0px 2px 2px black;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+  input[type="text"]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid grey;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    border-radius: 10px;
+  }
+  
+  textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid grey;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    border-radius: 10px;
+  }
+  
+  input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid grey;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    border-radius: 10px;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    background-color: green;
+    outline: none;
+    box-shadow: 0px 2px 2px black;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color:rgb(106, 248, 106);
+  }
+  
+  ::-webkit-input-placeholder{font-size: 15px; }
+  input:-moz-placeholder{ font-size: 15px; } 
+  
+  .contact{
+    width: 500px;
+    margin: 60px auto;
+    margin-bottom: 100px;
+  }
+  .contact span{
+    color: red;
+  }
+  
+  .contact h1{
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: normal;
+  }
+  
+  .contact label {
+    text-align: left;
+    padding-right: 5px;
+    display: block;
+    color: rgb(26, 24, 24);
+  }
+  
+  footer {
+    height: 100px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 20px;
+  }
+  
+  footer span {
+    line-height: 50px;
+  }
+  
+  @media screen and (max-width: 950px){ /* digunakan jika ukuran screen dalam browser di kecilkan sehingga ukuran menjadi 1000px kebawah, makan background colornya akan berubah menjadi wrna merah*/
+    /* jika ukuran 1000px kebawah makan lakukan hal dibawah ini */
+    .kampret, .kampret1, .kampret2{
+        width: 96%;
+        margin: 2%;
+    }
+  }
+  @media screen and (max-width: 700px){
+    .contact{
+        width: 90%;
+    }
+  }
+  .coba, .coba1, .coba2, .coba3, .coba4, .coba5, .pena, .pena1, .pena2, .pena3, .pena4, .pensil, .pensil1{
+    background-color: white;
+    animation-name: ngantuk, ngantuk1, ngantuk2, ngantuk3, ngantuk4, ngantuk5;
+    height: 20px;
+    width: 30px;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+  }
+  .coba{
+    animation-name: ngantuk;
+    
+  }
+  .coba1{
+    animation-name: ngantuk1;
+  }
+  .coba2{
+    animation-name: ngantuk3;
+  }
+  .coba3{
+    animation-name: ngantuk2;
+  }
+  .coba4{
+    animation-name: ngantuk4;
+  }
+  .coba5{
+    animation-name: ngantuk5;
+  }
+  @keyframes ngantuk {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 40px;}
+  50% { background: blue;  width: 50px;}
+  75% { background: aqua;  width: 60px;}
+  100% { background: purple; width: 70px;}
+  }
+  @keyframes ngantuk1 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 50px;}
+  50% { background: blue;  width: 70px;}
+  75% { background: aqua;  width: 85px;}
+  100% { background: pink; width: 100px;}
+  }
+  @keyframes ngantuk2 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 80px;}
+  50% { background: blue;  width: 120px;}
+  75% { background: aqua;  width: 150px;}
+  100% { background: green; width: 200px;}
+  }
+  @keyframes ngantuk3 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 60px;}
+  50% { background: blue;  width: 80px;}
+  75% { background: aqua;  width: 120px;}
+  100% { background: orange; width: 150px;}
+  }
+  @keyframes ngantuk4 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 50x;}
+  50% { background: blue;  width: 80x;}
+  75% { background: aqua;  width: 100;}
+  100% { background: yellow; width: 120px;}
+  }
+  @keyframes ngantuk5 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 50px;}
+  50% { background: blue;  width: 65px;}
+  75% { background: aqua;  width: 85px;}
+  100% { background: red; width: 100px;}
+  }
+  .pena{
+    animation-name: hujan;
+  }
+  .pena1{
+    animation-name: hujan1;
+  }
+  .pena2{
+    animation-name: hujan2;
+  }
+  .pena3{
+    animation-name: hujan3;
+  }
+  .pena4{
+    animation-name: hujan4;
+  }
+  @keyframes hujan {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 40px;}
+  50% { background: blue;  width: 50px;}
+  75% { background: aqua;  width: 60px;}
+  100% { background: purple; width: 70px;}
+  }
+  @keyframes hujan1 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 50px;}
+  50% { background: blue;  width: 70px;}
+  75% { background: aqua;  width: 85px;}
+  100% { background: pink; width: 100px;}
+  }
+  @keyframes hujan2 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 80px;}
+  50% { background: blue;  width: 120px;}
+  75% { background: aqua;  width: 150px;}
+  100% { background: green; width: 200px;}
+  }
+  @keyframes hujan3 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 60px;}
+  50% { background: blue;  width: 80px;}
+  75% { background: aqua;  width: 120px;}
+  100% { background: orange; width: 150px;}
+  }
+  @keyframes hujan4 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 50x;}
+  50% { background: blue;  width: 80x;}
+  75% { background: aqua;  width: 100;}
+  100% { background: yellow; width: 120px;}
+  }
+  .pensil{
+    animation-name: biasa;
+  }
+  .pensil1{
+    animation-name: biasa1;
+  }
+  @keyframes biasa {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 70px;}
+  50% { background: blue;  width: 120px;}
+  75% { background: aqua;  width: 150px;}
+  100% { background: white; width: 190px;}
+  }
+  @keyframes biasa1 {
+    0% { background: yellow; width: 30px; }
+  25% { background: red;  width: 90px;}
+  50% { background: purple;  width: 150px;}
+  75% { background: aqua;  width: 200px;}
+  100% { background: blue; width: 250px;}
+  }
