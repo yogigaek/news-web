@@ -3,9 +3,9 @@ import Sidebar from "../Navigation/Sidebar";
 import Backdrop from './../Navigation/Backdrop';
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import Intro from './../Intro-reactjs/index';
+// import Intro from './../Intro-reactjs/index';
 import LifecycleComponents from './../Lifecycle-components/index';
-import StylingComponents from './../Styling-components/index';
+// import StylingComponents from './../Styling-components/index';
 import Hooks from './../hook/index';
 // import FormValidation from './../Form-validation/index';
 // import Home from "../Navigation/Home";
@@ -28,8 +28,8 @@ const Routing = () => {
                 <Routes>
                     <Route path="/" element={<Hooks />} />
                     <Route path="/LifecycleComponents" element={<LifecycleComponents />} />
-                    <Route path="/Intro" element={<Intro />} />
-                    <Route path="/StylingComponents" element={<StylingComponents />} />
+                    {/* <Route path="/Intro" element={<Intro />} /> */}
+                    {/* <Route path="/StylingComponents" element={<StylingComponents />} /> */}
                     {/* <Route path="/FormValidation" element={<FormValidation />} /> */}
                     {/* <Route path="/Hooks" element={<Hooks />} />   */}
                     {/* <Route path="/Redux" element={<Redux />} />                 */}

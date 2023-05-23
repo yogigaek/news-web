@@ -33,41 +33,35 @@ const FunctionalHook = () => {
     }, []);
 
     return (
-        <div className="container cardNews">
+        <div className="container news-container">
             <div className="row">
-                <div className="row mt-3 ">
-                    <h1 className="hook">Latest News DB</h1>
-                </div>
-                <div className="input-group mb-3" controlid="">
-                    <input type="text" className="form-control input-keyword" id="search" placeholder="Search News.."
+                <h1 className="news-title">Latest News</h1>
+                <input type="text" className="form-control news-search" id="search" placeholder="Search News.."
                         onChange={(e) => getData(e.target.value)} />
-                </div>
-                {error ? (
-                    <div className="alert alert-danger alert-sm" style={{ textAlign: "center" }}>
+                {error && 
+                    <div className="alert alert-danger">
                         Data No Response !
                     </div>
-                ) : (``)}
-                {loading ? (<SpinnerDiamond className="spinner" size={90} thickness={180} speed={180} color={"rgba(172, 57, 57, 1)"} secondaryColor={"rgba(0, 0, 0, 0.44)"} />)
-                    : ( 
-                        data.map((n, index) => (
-                            <div className="col-md-4 my-3" key={index} >
-                                <div className="card" style={{ width: "18rem" }}>
-                                    <img src={n.urlToImage} className="card-img-top" alt="" />
-                                    <div className="card-body">
-                                        <h5 className="card-title"> <strong> {n.title} </strong> </h5>
-                                        <h6 className="card-subtitle mb-2 text-muted">{n.publishedAt}</h6>
-                                        <h6 className="card-subtitle mb-2 text-muted">{n.source.name}</h6>
-                                        <h6 className="card-subtitle mb-2">{n.description}</h6>
-                                        <a href={n.url} className="btn btn-primary HOOKS">
-                                            Read More
-                                        </a>
-                                    </div>
+                }
+                {loading ? 
+                    <SpinnerDiamond className="spinner" size={90} thickness={180} speed={180} color={"rgba(172, 57, 57, 1)"} secondaryColor={"rgba(0, 0, 0, 0.44)"} /> :
+                    data.map((n, index) => (
+                        <div className="col-md-4 my-3 news-card" key={index}>
+                            <div className="card">
+                                <img src={n.urlToImage} className="card-img-top" alt="" />
+                                <div className="card-body">
+                                    <h5 className="card-title">{n.title}</h5>
+                                    <h6 className="card-subtitle mb-2 text-muted">{n.publishedAt}</h6>
+                                    <h6 className="card-subtitle mb-2 text-muted">{n.source.name}</h6>
+                                    <h6 className="card-subtitle mb-2">{n.description}</h6>
+                                    <a href={n.url} className="btn btn-primary news-read-more">
+                                        Read More
+                                    </a>
                                 </div>
                             </div>
-                        ))
-                    )
-                };
-                
+                        </div>
+                    ))
+                }
             </div>
         </div>
     );

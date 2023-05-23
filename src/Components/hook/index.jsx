@@ -1,12 +1,12 @@
 import './hooks.css';
-import NavbarNews from './../Lifecycle-components/Navbar';
+// import NavbarNews from './../Lifecycle-components/Navbar';
 import FunctionalHook from './hook';
 
 
 function Hooks() {
   return (
     <div className="App">
-      <NavbarNews />
+      {/* <NavbarNews /> */}
       <FunctionalHook />
     </div>
   );

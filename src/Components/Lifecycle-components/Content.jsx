@@ -1,90 +1,77 @@
 import React from "react";
-import { Card, Col } from "react-bootstrap";
-import { messages } from "validatorjs/src/lang";
+import { Card, Col, Container, Row, InputGroup, FormControl, Alert } from "react-bootstrap";
+import { SpinnerDiamond } from 'spinners-react';
 
 export default class ContentNews extends React.Component {
     state = { news: [], search: "", errors: false };
-    getData = (key) => {
-        if (key === "") {
-            key = "all";
-        }
+
+    getData = (key = "all") => {
         this.setState({ loading: true });
-        const data = fetch(
-            `https://newsapi.org/v2/everything?apiKey=7f237570bfa444a7b49515ab49db8476&q= + ${key}`
-        );
-        if (data) {
-            data
-                .then((response) => response.json())
-                .then((response) => {
-                    const news = response.articles;
-                    this.setState({ news });
-                })
-                .catch((err) => {
-                    this.setState({ errors: err.message });
-                })
-                .finally(() => { });
-        } else {
-            this.setState({ errors: true });
-        }
+        fetch(`https://newsapi.org/v2/everything?apiKey=7f237570bfa444a7b49515ab49db8476&q=${key}`)
+            .then((response) => response.json())
+            .then((response) => {
+                const news = response.articles;
+                this.setState({ news, errors: false, loading: false });
+            })
+            .catch((err) => {
+                this.setState({ errors: true, loading: false });
+            });
     };
 
-    getMessage(messages) {
-        return messages;
-    }
     componentDidMount() {
-        const key = "";
-        this.getData(key);
+        this.getData();
     }
-    search = async (key) => {
-        this.getData(key);
-    };
-    changeHandler = async (e) => {
-        if (this.search === "") {
-            this.serach(`all`);
-            this.setState({ value: e.target.value });
-        } else {
-            this.search(e.target.value);
-            this.setState({ value: e.target.value });
-        }
+
+    changeHandler = (e) => {
+        this.setState({ search: e.target.value });
+        this.getData(e.target.value);
     };
 
     render() {
+        const { news, errors, loading } = this.state;
+
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="row mt-3">
-                        <h1>Latest News DB</h1>
-                    </div>
-                    <div className="input-group mb-3" controlId="">
-                        <input type="text" className="form-control input-keyword" id="search" placeholder="Search News.."
-                            value={this.state.value}
-                            onChange={(e) => this.changeHandler(e)} />
-                    </div>
-                    {!this.state.news ? (
-                        <div className="alert alert-danger alert-sm" style={{ textAlign: "center" }}>
-                            Data No Response !
-                        </div>
-                    ) : (
-                        this.state.news.map((n, i) => (
-                            <Col key={i} sm={4}>
-                                <Card style={{ width: "18rem" }}>
+            <Container>
+                <Row className="mt-3">
+                    <h1>Latest News DB</h1>
+                </Row>
+                <Row className="mb-3">
+                    <InputGroup>
+                        <FormControl
+                            placeholder="Search News.."
+                            value={this.state.search}
+                            onChange={this.changeHandler}
+                        />
+                    </InputGroup>
+                </Row>
+                {errors && (
+                    <Alert variant="danger" style={{ textAlign: "center" }}>
+                        Data No Response !
+                    </Alert>
+                )}
+                {loading ? (
+                    <SpinnerDiamond className="spinner" size={90} thickness={180} speed={180} color={"rgba(172, 57, 57, 1)"} secondaryColor={"rgba(0, 0, 0, 0.44)"} />
+                ) : (
+                    <Row>
+                        {news.map((n, i) => (
+                            <Col key={i} sm={4} className="mb-3">
+                                <Card className="h-100">
                                     <Card.Img variant="top" src={n.urlToImage} />
-                                    <Card.Body>
-                                        <h5 class="card-title">{n.title}</h5>
-                                        <h6 className="card-subtitle mb-2 text-muted">{n.publishedAt}</h6>
-                                        <h6 className="card-subtitle mb-2 text-muted">{n.source.name}</h6>
-                                        <Card.Text>{n.description}</Card.Text>
-                                        <a href={n.url} className="btn btn-primary">
+                                    <Card.Body className="d-flex flex-column">
+                                        <Card.Title>{n.title}</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">{n.source.name}</Card.Subtitle>
+                                        <Card.Text className="flex-grow-1">{n.description}</Card.Text>
+                                        <a href={n.url} className="mt-auto btn btn-primary">
                                             Read More
                                         </a>
                                     </Card.Body>
+                                    <Card.Footer className="text-muted">{new Date(n.publishedAt).toDateString()}</Card.Footer>
                                 </Card>
                             </Col>
-                        ))
-                    )}
-                    {console.log(this.getMessage(messages))}
-                </div>
-            </div>
+                        ))}
+                    </Row>
+                )}
+            </Container>
         );
     }
 }

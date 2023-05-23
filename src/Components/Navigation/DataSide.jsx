@@ -3,12 +3,12 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 
 export const SidebarData = [
-    {
-        title: `Intro ReactJs`,
-        path: `/Intro`,
-        icon: <FaIcons.FaCartPlus />,
-        cName: `nav-text`
-    },
+    // {
+    //     title: `Intro ReactJs`,
+    //     path: `/Intro`,
+    //     icon: <FaIcons.FaCartPlus />,
+    //     cName: `nav-text`
+    // },
     {
         title: `Hooks Functional`,
         path: `/`,
@@ -21,12 +21,12 @@ export const SidebarData = [
         icon: <FaIcons.FaCartPlus />,
         cName: `nav-text`
     },
-    {
-        title: `StylingComponents`,
-        path: `/StylingComponents`,
-        icon: <FaIcons.FaCartPlus />,
-        cName: `nav-text`
-    },
+    // {
+    //     title: `StylingComponents`,
+    //     path: `/StylingComponents`,
+    //     icon: <FaIcons.FaCartPlus />,
+    //     cName: `nav-text`
+    // },
     // {
     //     title: `FormValidation`,
     //     path: `/FormValidation`,
